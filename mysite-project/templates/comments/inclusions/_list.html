@@ -1,0 +1,20 @@
+<h3>
+    {% if comment_count == 1 %}
+        There is <span>{{ comment_count }}</span> comment.
+    {% else %}
+        There are <span>{{ comment_count }}</span> comments.
+    {% endif %}
+</h3>
+<ul class="comment-list list-unstyled">
+  {% for comment in comment_list %}
+    <li class="comment-item">
+      <span class="nickname">{{ comment.name }}</span>
+      <time class="submit-date" datetime="{{ comment.created_time }}">{{ comment.created_time }}</time>
+      <div class="text">
+        {{ comment.text|safe|linebreaks }}
+      </div>
+    </li>
+  {% empty %}
+    Currently No Comments...
+  {% endfor %}
+</ul>

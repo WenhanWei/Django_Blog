@@ -1,0 +1,58 @@
+{% extends 'blog/all_base.html' %}
+{% load static %}
+{% block content %}
+    <!-- Page Header -->
+  <header class="masthead" style="background-image: url('{% static 'blog/img/University_of_Birmingham.jpg' %}')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1>Wenhan Wei</h1>
+              <span class="subheading">School of Computer Science</span>
+              <span class="subheading">University of Birmingham</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+    <main role="main" class="container">
+        <div class="row">
+            <div class="col-md-8 blog-main">
+                <!-- ******************  EDUCATION & CERTIFICATIONS ****************** -->
+            <section class="education item-details">
+                    <h2>Education</h2>
+                    <hr>
+                {% for education in educations  %}
+                        <h3>{{ education.name_of_education }}</h3>
+                        <p class="blog-post-meta">{{ education.start_date_of_education }}-{{ education.end_date_of_education }}</p>
+                        <p>{{ education.details_of_education |safe|linebreaksbr }}</p>
+                {% endfor %}
+            </section>
+
+                <!-- ***********************  WORK EXPERIENCE  *********************** -->
+            <section class="work-experience item-details">
+
+            </section>
+
+                <!-- ********************  PROJECTS / PORTFOLIO  ********************* -->
+            <section class="projects">
+                <h2>Projects</h2>
+                <hr>
+                {% for project in projects  %}
+                    {% if project.image_of_project_experience %}
+                        <h3>{{ project.name_of_project_experience }}</h3>
+                        <p>{{ project.start_date_of_project_experience }}-{{ project.end_date_of_project_experience }}</p>
+                        <p>{{ project.project_job_title}}</p>
+                        <p>{{ project.details_of_project_experience | linebreaksbr }}</p>
+                    {% endif %}
+                {% endfor %}
+            </section>
+
+
+            </div><!--main -->
+        </div><!-- row -->
+    </main><!--container -->
+
+{% endblock %}

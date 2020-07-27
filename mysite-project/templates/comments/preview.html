@@ -1,0 +1,8 @@
+{% extends 'blog/blog_base.html' %}
+{% load comments_extras %}
+
+{% block blog_main %}
+
+  {% show_comment_form post form %}
+
+{% endblock %}

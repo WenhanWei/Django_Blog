@@ -1,2 +1,2 @@
 # Django-Blog
-Year 2 University of Birmingham Summer Coursework
+Year 2 University of Birmingham Coursework
