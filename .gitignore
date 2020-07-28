@@ -1,5 +1,6 @@
 .idea
 myvenv
 __pycache__
+mysite-project/mysite/
 Pipfile.lock
 Pipfile
