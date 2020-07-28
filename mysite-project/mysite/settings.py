@@ -18,7 +18,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = ''
+with open('/home/WenhanWei/secret_key.txt') as f:
+   SECRET_KEY = f.read().strip()
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -50,6 +52,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
 
 # SECURE_HSTS_SECONDS = 0
 # SECURE_HSTS_INCLUDE_SUBDOMAINS = True
@@ -92,10 +95,14 @@ DATABASES = {
 
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'myblog',
+        'NAME': 'WenhanWei$myblog',
         'USER': '',
         'PASSWORD': '',
         'HOST': 'WenhanWei.mysql.pythonanywhere-services.com',
+        'TEST': {
+            'NAME': 'WenhanWei$test_myblog',
+        },
+
     }
 }
 
@@ -134,7 +141,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'blog/../blog/static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'blog/../blog/static/')
+
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'blog/../blog/media/')
