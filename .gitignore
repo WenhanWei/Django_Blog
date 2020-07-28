@@ -4,3 +4,6 @@ __pycache__
 mysite-project/mysite/
 Pipfile.lock
 Pipfile
+/mysite-project/blog/static/admin
+/mysite-project/blog/static/summernote
+/mysite-project/blog/media
