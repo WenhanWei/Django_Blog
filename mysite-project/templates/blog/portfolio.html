@@ -44,7 +44,7 @@
                     <h3>{{ project.name_of_project_experience }}</h3>
                     <p>{{ project.start_date_of_project_experience }}-{{ project.end_date_of_project_experience }}</p>
                     <p>{{ project.project_job_title}}</p>
-                    <p>{{ project.details_of_project_experience | linebreaksbr }}</p>
+                    <p>{{ project.details_of_project_experience | safe | linebreaksbr }}</p>
                 {% endfor %}
             </section>
 
