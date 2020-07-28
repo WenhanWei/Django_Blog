@@ -6,4 +6,4 @@ Pipfile.lock
 Pipfile
 /mysite-project/blog/static/admin
 /mysite-project/blog/static/summernote
-/mysite-project/blog/media
+/mysite-project/blog/media/django-summernote
