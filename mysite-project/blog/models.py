@@ -131,9 +131,10 @@ class Post(models.Model):
 
     def save(self, *args, **kwargs):
         if self.abstract:
-            super().save()
+            self.modified_date = timezone.now()
+            super().save(*args, **kwargs)
         else:
-            self.modified_time = timezone.now()
+            self.modified_date = timezone.now()
 
             # First instantiates a Markdown class that renders the text of the text.
             # Since abstracts do not need to generate article directories, directory extensions are removed.

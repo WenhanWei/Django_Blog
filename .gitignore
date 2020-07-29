@@ -7,3 +7,4 @@ Pipfile
 /mysite-project/blog/static/admin
 /mysite-project/blog/static/summernote
 /mysite-project/blog/media/django-summernote
+/mysite-project/geckodriver.log
