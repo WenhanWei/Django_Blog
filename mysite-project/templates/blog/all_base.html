@@ -69,13 +69,13 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link"  href="{% url 'blog:index' %}">Home</a>
+                <a class="nav-link" id="home" href="{% url 'blog:index' %}">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'blog:blog_index' %}">Blog</a>
+                <a class="nav-link" id="blog" href="{% url 'blog:blog_index' %}">Blog</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'blog:portfolio' %}">About Me</a>
+                <a class="nav-link" id="portfolio" href="{% url 'blog:portfolio' %}">About Me</a>
             </li>
         </ul>
           {% block searchField %}
@@ -146,11 +146,6 @@
 
   <script src="{% static 'blog/js/highlight.min-9.15.8.js' %}"></script>
   <script src="{% static 'blog/js/highlightjs-line-numbers.min-2.7.0.js' %}"></script>
-  <script>
-    import * as hljs from "../../blog/static/blog/js/highlight.min-9.15.8";
-    hljs.initHighlightingOnLoad();
-    hljsn.initLineNumbersOnLoad();
-  </script>
 
 </body>
 </html>
