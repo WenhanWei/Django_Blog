@@ -87,7 +87,7 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 config = configparser.ConfigParser()
-config.read('mysite/database_config.ini')  # 读config.ini文件
+config.read('mysite/database_config.ini')
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
