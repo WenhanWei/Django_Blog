@@ -19,7 +19,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-with open('mysite/secret_key.txt') as fileSecret:
+pathToSecretKey = os.path.join(BASE_DIR, 'mysite/secret_key.txt')
+with open(pathToSecretKey) as fileSecret:
     SECRET_KEY = fileSecret.read().strip()
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -87,7 +88,8 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 config = configparser.ConfigParser()
-config.read('mysite/database_config.ini')
+pathToDatabase = os.path.join(BASE_DIR, 'mysite/database_config.ini')
+config.read(pathToDatabase)
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
