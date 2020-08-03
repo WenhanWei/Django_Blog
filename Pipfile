@@ -1,0 +1,18 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+selenium = "*"
+
+[packages]
+django = "==2.2.14"
+mysqlclient = "*"
+pillow = "*"
+django-summernote="*"
+markdown="*"
+selenium = "*"
+
+[requires]
+python_version = "3.7"

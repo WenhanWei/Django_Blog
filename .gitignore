@@ -3,8 +3,6 @@ myvenv
 __pycache__
 mysite-project/mysite/secret_key.txt
 mysite-project/mysite/database_config.ini
-Pipfile.lock
-Pipfile
 /mysite-project/blog/static/admin
 /mysite-project/blog/static/summernote
 /mysite-project/blog/media/django-summernote
