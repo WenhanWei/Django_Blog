@@ -17,9 +17,9 @@
         </div>
         <div class="entry-content clearfix">
             {% if post.text %}
-                {{ post.text|safe|linebreaksbr }}
+                <p>{{ post.text|safe|linebreaksbr }}</p>
             {% else %}
-                {{ post.text_rich|safe|linebreaksbr }}
+                <p>{{ post.text_rich|safe|linebreaksbr }}</p>
             {% endif %}
 
         </div>

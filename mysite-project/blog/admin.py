@@ -24,7 +24,7 @@ class ProjectAdmin(SummernoteModelAdmin):  # instead of ModelAdmin
 
 
 class ProgrammingLanguageSkillAdmin(SummernoteModelAdmin):  # instead of ModelAdmin
-    summernote_fields = '__all__'
+    summernote_fields = ('programming_language_skill_details_rich',)
 
 
 # Register your models here.

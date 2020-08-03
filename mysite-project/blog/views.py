@@ -118,8 +118,16 @@ def search(request):
 def portfolio(request):  # My Resume
     educations = Education.objects.order_by('id')
     projects = Project.objects.order_by('id')
+    honors = Honor.objects.order_by('id')
+    work_experiences = WorkExperience.objects.order_by('id')
+    language_skills = LanguageSkill.objects.order_by('id')
+    programming_skills = ProgrammingLanguageSkill.objects.order_by('id')
 
     return render(request,
                   'blog/portfolio.html',
                   {'educations': educations,
-                   'projects': projects})
+                   'projects': projects,
+                   'honors': honors,
+                   'work_experiences': work_experiences,
+                   'language_skills': language_skills,
+                   'programming_skills': programming_skills})

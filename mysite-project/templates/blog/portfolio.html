@@ -21,7 +21,7 @@
         <div class="row">
             <div class="col-md-8 blog-main">
                 <!-- ******************  EDUCATION & CERTIFICATIONS ****************** -->
-            <section class="education item-details">
+            <section class="education">
                     <h2>Education</h2>
                     <hr>
                 {% for education in educations  %}
@@ -32,11 +32,16 @@
             </section>
 
                 <!-- ***********************  WORK EXPERIENCE  *********************** -->
-            <section class="work-experience item-details">
-                <!--
-                <h2>Work Experience</h2>
-                <hr>
-                -->
+            <section class="work-experience">
+
+{#                <h2>Work Experience</h2>#}
+{#                <hr>#}
+{#                {% for work_experience in work_experiences  %}#}
+{#                    <h3>{{ work_experience.name_of_work_and_internship }}</h3>#}
+{#                    <p>{{ work_experience.start_date_of_work_and_internship}}-{{ work_experience.end_date_of_work_and_internship }}</p>#}
+{#                    <p>{{work_experience.job_title}}</p>#}
+{#                    <p>{{ work_experience.details_of_work_and_internship | safe | linebreaksbr }}</p>#}
+{#                {% endfor %}#}
 
             </section>
 
@@ -50,6 +55,37 @@
                     <p>{{ project.project_job_title}}</p>
                     <p>{{ project.details_of_project_experience | safe | linebreaksbr }}</p>
                 {% endfor %}
+            </section>
+
+                <!-- ***********************  HONORS  *********************** -->
+            <section class="honors">
+                <h2>Honors</h2>
+                <hr>
+                {% for honor in honors  %}
+                    <p>{{ honor.name_of_the_honor }}</p>
+                {% endfor %}
+            </section>
+
+                <!-- ***********************  SKILLS  *********************** -->
+            <section class="skills">
+                <h2>Skills</h2>
+                <hr>
+                <h4>Language Skills</h4>
+                {% for language_skill in language_skills  %}
+                    <p>{{ language_skill }}</p>
+                {% endfor %}
+                <hr>
+                <h4>Programming Skills</h4>
+                {% for programming_skill in programming_skills  %}
+                    <p>{{ programming_skill.programming_language_skill }}</p>
+                    {% if programming_skill.programming_language_skill_details %}
+                       <p>{{ programming_skill.programming_language_skill_details | safe | linebreaksbr}}</p>
+                    {% else %}
+                        <p>{{ programming_skill.programming_language_skill_details_rich | safe | linebreaksbr}}</p>
+                    {% endif %}
+
+                {% endfor %}
+
             </section>
 
 

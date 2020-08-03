@@ -56,7 +56,8 @@ class LanguageSkill(models.Model):
 
 class ProgrammingLanguageSkill(models.Model):
     programming_language_skill = models.CharField(max_length=100)
-    programming_language_skill_details = models.TextField()
+    programming_language_skill_details = models.TextField(blank=True)
+    programming_language_skill_details_rich = models.TextField(blank=True)
 
     def __str__(self):
         return self.programming_language_skill
