@@ -7,3 +7,5 @@ mysite-project/mysite/database_config.ini
 /mysite-project/blog/static/summernote
 /mysite-project/blog/media/django-summernote
 /mysite-project/geckodriver.log
+/mysite-project/blog/forms.py
+/mysite-project/templates/blog/inclusions/_edu_form.html

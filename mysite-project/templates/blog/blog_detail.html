@@ -3,11 +3,11 @@
 {% load comments_extras %}
 {% block blog_main %}
     <article class="post post-{{ post.pk }}">
-      <header class="entry-header">
-        <h1 class="entry-title">
-          <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
-        </h1>
-      </header>
+        <header class="entry-header">
+            <h1 class="entry-title">
+                <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+            </h1>
+        </header>
         <div class="entry-meta">
             <span class="post-category"><a href="#">{{ post.category }}</a></span>
             <span class="post-date"><a href="#"><time class="entry-date">{{ post.created_date }}</time></a></span>
@@ -39,14 +39,14 @@
 {% endblock %}
 
 {% block toc %}
-  {% if post.toc %}
-    <div class="widget widget-content">
-      <h3 class="widget-title">Article Directories</h3>
-      <div class="toc">
-        <ul>
-          {{ post.toc|safe }}
-        </ul>
-      </div>
-    </div>
-  {% endif %}
+    {% if post.toc %}
+        <div class="widget widget-content">
+            <h3 class="widget-title">Article Directories</h3>
+            <div class="toc">
+                <ul>
+                    {{ post.toc|safe }}
+                </ul>
+            </div>
+        </div>
+    {% endif %}
 {% endblock %}

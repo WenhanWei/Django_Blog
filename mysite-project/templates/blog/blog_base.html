@@ -3,8 +3,8 @@
 {% load blog_extras %}
 
 {% block searchField %}
-    <form class="form-inline my-2 my-md-0" role="search" method="get" action="{% url 'blog:search' %}" >
-        <input class="form-control" type="text" name="q" placeholder="Search"  required>
+    <form class="form-inline my-2 my-md-0" role="search" method="get" action="{% url 'blog:search' %}">
+        <input class="form-control" type="text" name="q" placeholder="Search" required>
     </form>
 {% endblock %}
 
@@ -25,34 +25,34 @@
     </header>
 
     {% if messages %}
-    {% for message in messages %}
-      <div class="alert alert-{{ message.tags }} alert-dismissible" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
-                aria-hidden="true">&times;</span></button>
-        {{ message }}
-      </div>
-    {% endfor %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }} alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                {{ message }}
+            </div>
+        {% endfor %}
     {% endif %}
 
 
     <div class="content-body">
-    <div class="container">
-        <div class="row">
-            <main class="col-md-8">
-                {% block blog_main %}
-                {% endblock %}
-            </main>
-            <aside class="col-md-4">
-                {% block toc %}
-                {% endblock %}
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8">
+                    {% block blog_main %}
+                    {% endblock %}
+                </main>
+                <aside class="col-md-4">
+                    {% block toc %}
+                    {% endblock %}
 
-                {% show_recent_posts %}
-                {% show_archives %}
-                {% show_categories %}
-                {% show_tags %}
+                    {% show_recent_posts %}
+                    {% show_archives %}
+                    {% show_categories %}
+                    {% show_tags %}
 
-            </aside>
+                </aside>
+            </div>
         </div>
     </div>
-</div>
 {% endblock %}

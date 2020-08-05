@@ -1,30 +1,31 @@
 {% extends 'blog/blog_base.html' %}
 {% load static %}
 
-    {% block blog_main %}
+{% block blog_main %}
     {% for post in post_list %}
-    <article class="post post-{{ post.pk }}">
-      <header class="entry-header">
-        <h1 class="entry-title">
-          <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
-        </h1>
-      </header>
-        <div class="entry-meta">
-            <span class="post-category"><a href="#">{{ post.category }}</a></span>
-            <span class="post-date"><a href="#"><time class="entry-date"
-                                                      datetime="{{ post.created_time }}">{{ post.created_date }}</time></a></span>
-            <span class="post-author"><a href="{% url 'blog:portfolio' %}">{{ post.author }}</a></span>
-            <span class="comments-link"><a href="{{ post.get_absolute_url }}#comment-area">{{ post.comment_set.count }} Comments</a></span>
-            <span class="views-count"><a href="#">{{ post.views }} Views</a></span>
-        </div>
-      <div class="entry-content clearfix">
-        <div class="read-more cl-effect-14">
-            <p>{{ post.abstract }}...</p>
-          <a href="{{ post.get_absolute_url }}" class="more-link">Read More<span class="meta-nav">→</span></a>
-        </div>
-      </div>
-    </article>
+        <article class="post post-{{ post.pk }}">
+            <header class="entry-header">
+                <h1 class="entry-title">
+                    <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+                </h1>
+            </header>
+            <div class="entry-meta">
+                <span class="post-category"><a href="#">{{ post.category }}</a></span>
+                <span class="post-date"><a href="#"><time class="entry-date"
+                                                          datetime="{{ post.created_time }}">{{ post.created_date }}</time></a></span>
+                <span class="post-author"><a href="{% url 'blog:portfolio' %}">{{ post.author }}</a></span>
+                <span class="comments-link"><a
+                        href="{{ post.get_absolute_url }}#comment-area">{{ post.comment_set.count }} Comments</a></span>
+                <span class="views-count"><a href="#">{{ post.views }} Views</a></span>
+            </div>
+            <div class="entry-content clearfix">
+                <div class="read-more cl-effect-14">
+                    <p>{{ post.abstract }}...</p>
+                    <a href="{{ post.get_absolute_url }}" class="more-link">Read More<span class="meta-nav">→</span></a>
+                </div>
+            </div>
+        </article>
     {% empty %}
-      <div class="no-post">Currently Empty...</div>
+        <div class="no-post">Currently Empty...</div>
     {% endfor %}
-    {% endblock %}
+{% endblock %}
