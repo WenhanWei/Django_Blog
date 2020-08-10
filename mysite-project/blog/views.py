@@ -119,6 +119,7 @@ def portfolio(request):  # My Resume
     educations = Education.objects.order_by('id')
     projects = Project.objects.order_by('id')
     honors = Honor.objects.order_by('id')
+    hobbies = PersonalHobby.objects.order_by('id')
     work_experiences = WorkExperience.objects.order_by('id')
     language_skills = LanguageSkill.objects.order_by('id')
     programming_skills = ProgrammingLanguageSkill.objects.order_by('id')
@@ -128,6 +129,7 @@ def portfolio(request):  # My Resume
                   {'educations': educations,
                    'projects': projects,
                    'honors': honors,
+                   'hobbies': hobbies,
                    'work_experiences': work_experiences,
                    'language_skills': language_skills,
                    'programming_skills': programming_skills})

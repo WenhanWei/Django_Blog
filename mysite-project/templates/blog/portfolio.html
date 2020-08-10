@@ -2,90 +2,109 @@
 {% load static %}
 {% block content %}
     <!-- Page Header -->
-  <header class="masthead" style="background-image: url('{% static 'blog/img/University_of_Birmingham.jpg' %}')">
-    <div class="overlay"></div>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
-          <div class="site-heading">
-            <h1>Wenhan Wei</h1>
-              <span class="subheading">School of Computer Science</span>
-              <span class="subheading">University of Birmingham</span>
-          </div>
+    <header class="masthead" style="background-image: url('{% static 'blog/img/University_of_Birmingham.jpg' %}')">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <div class="site-heading">
+                        <h1>Wenhan Wei</h1>
+                        <span class="subheading">School of Computer Science</span>
+                        <span class="subheading">University of Birmingham</span>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </header>
+    </header>
 
     <main role="main" class="container">
         <div class="row">
             <div class="col-md-8 blog-main">
                 <!-- ******************  EDUCATION & CERTIFICATIONS ****************** -->
-            <section class="education">
-                    <h2>Education</h2>
-                    <hr>
-                {% for education in educations  %}
-                        <h3>{{ education.name_of_education }}</h3>
-                        <p class="blog-post-meta">{{ education.start_date_of_education }}-{{ education.end_date_of_education }}</p>
-                        <p>{{ education.details_of_education |safe|linebreaksbr }}</p>
-                {% endfor %}
-            </section>
-
+                {% if educations %}
+                    <section class="education">
+                        <h2>Education</h2>
+                        <hr>
+                        {% for education in educations %}
+                            <h3>{{ education.name_of_education }}</h3>
+                            <p class="blog-post-meta">{{ education.start_date_of_education }}-{{ education.end_date_of_education }}</p>
+                            <p>{{ education.details_of_education |safe|linebreaksbr }}</p>
+                        {% endfor %}
+                    </section>
+                {% endif %}
                 <!-- ***********************  WORK EXPERIENCE  *********************** -->
-            <section class="work-experience">
-
-{#                <h2>Work Experience</h2>#}
-{#                <hr>#}
-{#                {% for work_experience in work_experiences  %}#}
-{#                    <h3>{{ work_experience.name_of_work_and_internship }}</h3>#}
-{#                    <p>{{ work_experience.start_date_of_work_and_internship}}-{{ work_experience.end_date_of_work_and_internship }}</p>#}
-{#                    <p>{{work_experience.job_title}}</p>#}
-{#                    <p>{{ work_experience.details_of_work_and_internship | safe | linebreaksbr }}</p>#}
-{#                {% endfor %}#}
-
-            </section>
-
+                {% if work_experiences %}
+                    <section class="work-experience">
+                        <h2>Work Experience</h2>
+                        <hr>
+                        {% for work_experience in work_experiences %}
+                            <h3>{{ work_experience.name_of_work_and_internship }}</h3>
+                            <p>{{ work_experience.start_date_of_work_and_internship }}-{{ work_experience.end_date_of_work_and_internship }}</p>
+                            <p>{{ work_experience.job_title }}</p>
+                            <p>{{ work_experience.details_of_work_and_internship | safe | linebreaksbr }}</p>
+                        {% endfor %}
+                    </section>
+                {% endif %}
                 <!-- ********************  PROJECTS / PORTFOLIO  ********************* -->
-            <section class="projects">
-                <h2>Projects</h2>
-                <hr>
-                {% for project in projects  %}
-                    <h3>{{ project.name_of_project_experience }}</h3>
-                    <p>{{ project.start_date_of_project_experience }}-{{ project.end_date_of_project_experience }}</p>
-                    <p>{{ project.project_job_title}}</p>
-                    <p>{{ project.details_of_project_experience | safe | linebreaksbr }}</p>
-                {% endfor %}
-            </section>
-
+                {% if projects %}
+                    <section class="projects">
+                        <h2>Projects</h2>
+                        <hr>
+                        {% for project in projects %}
+                            <h3>{{ project.name_of_project_experience }}</h3>
+                            <p>{{ project.start_date_of_project_experience }}-{{ project.end_date_of_project_experience }}</p>
+                            <p>{{ project.project_job_title }}</p>
+                            <p>{{ project.details_of_project_experience | safe | linebreaksbr }}</p>
+                        {% endfor %}
+                    </section>
+                {% endif %}
                 <!-- ***********************  HONORS  *********************** -->
-            <section class="honors">
-                <h2>Honors</h2>
-                <hr>
-                {% for honor in honors  %}
-                    <p>{{ honor.name_of_the_honor }}</p>
-                {% endfor %}
-            </section>
-
+                {% if honors %}
+                    <section class="honors">
+                        <h2>Honors</h2>
+                        <hr>
+                        {% for honor in honors %}
+                            <p>{{ honor.name_of_the_honor }}</p>
+                        {% endfor %}
+                    </section>
+                {% endif %}
                 <!-- ***********************  SKILLS  *********************** -->
-            <section class="skills">
-                <h2>Skills</h2>
-                <hr>
-                <h4>Language Skills</h4>
-                {% for language_skill in language_skills  %}
-                    <p>{{ language_skill }}</p>
-                {% endfor %}
-{#                <hr>#}
-{#                <h4>Programming Skills</h4>#}
-{#                {% for programming_skill in programming_skills  %}#}
-{#                    <p>{{ programming_skill.programming_language_skill }}</p>#}
-{#                    {% if programming_skill.programming_language_skill_details %}#}
-{#                       <p>{{ programming_skill.programming_language_skill_details | safe | linebreaksbr}}</p>#}
-{#                    {% else %}#}
-{#                        <p>{{ programming_skill.programming_language_skill_details_rich | safe | linebreaksbr}}</p>#}
-{#                    {% endif %}#}
-{#                {% endfor %}#}
+                {% if language_skills or programming_skills %}
+                    <section class="skills">
+                        <h2>Skills</h2>
+                        <hr>
+                        {% if language_skills %}
+                            <h4>Language Skills</h4>
+                            {% for language_skill in language_skills %}
+                                <p>{{ language_skill.language_skills }}</p>
+                            {% endfor %}
+                        {% endif %}
 
-            </section>
+                        {% if programming_skills %}
+                            <hr>
+                            <h4>Programming Skills</h4>
+                            {% for programming_skill in programming_skills %}
+                                <p>{{ programming_skill.programming_language_skill }}</p>
+                                {% if programming_skill.programming_language_skill_details %}
+                                    <p>{{ programming_skill.programming_language_skill_details | safe | linebreaksbr }}</p>
+                                {% else %}
+                                    <p>{{ programming_skill.programming_language_skill_details_rich | safe | linebreaksbr }}</p>
+                                {% endif %}
+                            {% endfor %}
+                        {% endif %}
+                    </section>
+                {% endif %}
+
+                <!-- *********************** Personal Hobbies  *********************** -->
+                {% if hobbies %}
+                    <section class="hobbies">
+                        <h2>Personal Hobbies</h2>
+                        <hr>
+                        {% for hobby in hobbies %}
+                            <p>{{ hobby.personal_hobby }}</p>
+                        {% endfor %}
+                    </section>
+                {% endif %}
 
 
             </div><!--main -->
