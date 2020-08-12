@@ -13,8 +13,9 @@ class NewVisitorTest(unittest.TestCase):
         # to check out its homepage
         self.browser.get('http://127.0.0.1:8000')
 
-        # She notices the page title, ico and my personal details
+        # She notices the page title, ico and my personal details, she can only see Welcome
         self.assertIn('WenhanWei\'s Blog', self.browser.title)
+        self.assertIn('Welcome', self.browser.find_element_by_css_selector('body>nav>div>a').text)
 
         # She will click the navigation bar to see the other part of my website (Blog or My portfolio)
         home_button = self.browser.find_element_by_id('home')
