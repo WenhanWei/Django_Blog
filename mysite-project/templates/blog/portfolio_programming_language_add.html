@@ -1,0 +1,46 @@
+{% extends 'blog/all_base.html' %}
+{% load static %}
+{% block content %}
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('{% static 'blog/img/University_of_Birmingham.jpg' %}')">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <div class="site-heading">
+                        <h1>Portfolio Edit</h1>
+                        <span class="subheading">Think Twice!</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main role="main" class="container">
+        <div class="row">
+            <div class="col-md-8 blog-main">
+                <!-- *********************** PROGRAMMING LANGUAGE SKILLS  *********************** -->
+                <section class="Honors">
+                    <h2>Language</h2>
+                    <hr>
+                    <form method="post" action="{% url 'blog:portfolio_programming_language_add' %}"
+                          id="programming_languages-edit">
+                        {% csrf_token %}
+                        <div class="col-md-4">
+                            <label for="{{ programming_language_form.programming_language_skill.id_for_label }}">{{ programming_language_form.programming_language_skill.label }}：</label>
+                            {{ programming_language_form.programming_language_skill }}
+                            {{ programming_language_form.programming_language_skill.errors }}
+                        </div>
+                        <div class="col-md-6">
+                            <label for="{{ programming_language_form.programming_language_skill_details.id_for_label }}">{{ programming_language_form.programming_language_skill_details.label }}：</label>
+                            {{ programming_language_form.programming_language_skill_details }}
+                            {{ programming_language_form.programming_language_skill_details.errors }}
+                            <button type="submit" class="submit-btn">Submit</button>
+                        </div>
+                    </form>
+                </section>
+            </div><!--main -->
+        </div><!-- row -->
+    </main><!--container -->
+
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'blog/all_base.html' %}
+{% load static %}
+{% block content %}
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('{% static 'blog/img/University_of_Birmingham.jpg' %}')">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <div class="site-heading">
+                        <h1>Portfolio Edit</h1>
+                        <span class="subheading">Think Twice!</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main role="main" class="container">
+        <div class="row">
+            <div class="col-md-8 blog-main">
+                <!-- *********************** Personal Hobbies  *********************** -->
+                <section class="Hobbies">
+                    <h2>Personal Hobbies</h2>
+                    <hr>
+                    <form method="post" action="{% url 'blog:portfolio_hobby_add' %}" id="hobbies-edit">
+                        {% csrf_token %}
+                        <div class="col-md-4">
+                            <label for="{{ personal_hobby_form.personal_hobby.id_for_label }}">{{ personal_hobby_form.personal_hobby.label }}：</label>
+                            {{ personal_hobby_form.personal_hobby }}
+                            {{ personal_hobby_form.personal_hobby.errors }}
+                            <button type="submit" class="submit-btn">Submit</button>
+                        </div>
+                    </form>
+                </section>
+            </div><!--main -->
+        </div><!-- row -->
+    </main><!--container -->
+
+{% endblock %}

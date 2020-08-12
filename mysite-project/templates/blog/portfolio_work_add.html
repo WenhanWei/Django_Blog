@@ -1,0 +1,66 @@
+{% extends 'blog/all_base.html' %}
+{% load static %}
+{% block content %}
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('{% static 'blog/img/University_of_Birmingham.jpg' %}')">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <div class="site-heading">
+                        <h1>Portfolio Edit</h1>
+                        <span class="subheading">Think Twice!</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main role="main" class="container">
+        <div class="row">
+            <div class="col-md-8 blog-main">
+                <!-- ***********************  WORK EXPERIENCE  *********************** -->
+                <section class="WorkExperience">
+                    <h2>Work Experience</h2>
+                    <hr>
+                    <form method="post" action="{% url 'blog:portfolio_work_add' %}" id="work-edit">
+                        {% csrf_token %}
+                        <div class="col-md-4">
+                            <label for="{{ work_form.name_of_work_and_internship.id_for_label }}">{{ work_form.name_of_work_and_internship.label }}：</label>
+                            {{ work_form.name_of_work_and_internship }}
+                            {{ work_form.name_of_work_and_internship.errors }}
+                        </div>
+                        <br>
+                        <div class="col-md-4">
+                            <label for="{{ work_form.job_title.id_for_label }}">{{ work_form.job_title.label }}：</label>
+                            {{ work_form.job_title }}
+                            {{ work_form.job_title.errors }}
+                        </div>
+                        <br>
+                        <div class="col-md-4">
+                            <label for="{{ work_form.start_date_of_work_and_internship.id_for_label }}">{{ work_form.start_date_of_work_and_internship.label }}：</label>
+                            {{ work_form.start_date_of_work_and_internship }}
+                            {{ work_form.start_date_of_work_and_internship.errors }}
+                        </div>
+                        <br>
+                        <div class="col-md-4">
+                            <label for="{{ work_form.end_date_of_work_and_internship.id_for_label }}">{{ work_form.end_date_of_work_and_internship.label }}：</label>
+                            {{ work_form.end_date_of_work_and_internship }}
+                            {{ work_form.end_date_of_work_and_internship.errors }}
+                        </div>
+                        <br>
+                        <div class="col-md-6">
+                            <label for="{{ work_form.details_of_work_and_internship.id_for_label }}">{{ work_form.details_of_work_and_internship.label }}：</label>
+                            {{ work_form.details_of_work_and_internship }}
+                            {{ work_form.details_of_work_and_internship.errors }}
+                            <button type="submit" class="submit-btn">Submit</button>
+                        </div>
+                    </form>
+                </section>
+
+
+            </div><!--main -->
+        </div><!-- row -->
+    </main><!--container -->
+
+{% endblock %}

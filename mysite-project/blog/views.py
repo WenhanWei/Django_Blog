@@ -1,9 +1,14 @@
-from django.db.models import Q
-from django.shortcuts import render, get_object_or_404, redirect
-from django.contrib import messages
-from .models import *
 import re
+
 import markdown
+from django.contrib import messages
+from django.db.models import Q
+from django.http import HttpResponseRedirect
+from django.shortcuts import render, get_object_or_404, redirect
+
+from .forms import EducationForm, WorkExperienceForm, ProjectForm, LanguageForm, ProgrammingLanguageForm, HonorForm, \
+    PersonalHobbyForm
+from .models import *
 
 
 # Create your views here.
@@ -124,12 +129,125 @@ def portfolio(request):  # My Resume
     language_skills = LanguageSkill.objects.order_by('id')
     programming_skills = ProgrammingLanguageSkill.objects.order_by('id')
 
-    return render(request,
-                  'blog/portfolio.html',
-                  {'educations': educations,
-                   'projects': projects,
-                   'honors': honors,
-                   'hobbies': hobbies,
-                   'work_experiences': work_experiences,
-                   'language_skills': language_skills,
-                   'programming_skills': programming_skills})
+    context = {'educations': educations,
+               'projects': projects,
+               'honors': honors,
+               'hobbies': hobbies,
+               'work_experiences': work_experiences,
+               'language_skills': language_skills,
+               'programming_skills': programming_skills}
+
+    return render(request, 'blog/portfolio.html', context=context)
+
+
+def portfolio_edu_add(request):
+    if request.method == 'POST':
+        education_form = EducationForm(request.POST)
+
+        if education_form.is_valid():
+            education_form.save()
+            return HttpResponseRedirect('/portfolio')
+
+    education_form = EducationForm()
+
+    context = {
+        'education_form': education_form,
+    }
+
+    return render(request, 'blog/portfolio_edu_add.html', context=context)
+
+
+def portfolio_work_add(request):
+    if request.method == 'POST':
+        work_form = WorkExperienceForm(request.POST)
+
+        if work_form.is_valid():
+            work_form.save()
+            return HttpResponseRedirect('/portfolio')
+
+    work_form = WorkExperienceForm()
+    context = {
+        'work_form': work_form,
+    }
+
+    return render(request, 'blog/portfolio_work_add.html', context=context)
+
+
+def portfolio_project_add(request):
+    if request.method == 'POST':
+        project_form = ProjectForm(request.POST)
+
+        if project_form.is_valid():
+            project_form.save()
+            return HttpResponseRedirect('/portfolio')
+
+    project_form = ProjectForm()
+    context = {
+        'project_form': project_form,
+    }
+
+    return render(request, 'blog/portfolio_project_add.html', context=context)
+
+
+def portfolio_language_add(request):
+    if request.method == 'POST':
+        language_form = LanguageForm(request.POST)
+
+        if language_form.is_valid():
+            language_form.save()
+            return HttpResponseRedirect('/portfolio')
+
+    language_form = LanguageForm()
+    context = {
+        'language_form': language_form,
+    }
+
+    return render(request, 'blog/portfolio_language_add.html', context=context)
+
+
+def portfolio_programming_language_add(request):
+    if request.method == 'POST':
+        programming_language_form = ProgrammingLanguageForm(request.POST)
+
+        if programming_language_form.is_valid():
+            programming_language_form.save()
+            return HttpResponseRedirect('/portfolio')
+
+    programming_language_form = ProgrammingLanguageForm()
+    context = {
+        'programming_language_form': programming_language_form,
+    }
+
+    return render(request, 'blog/portfolio_programming_language_add.html', context=context)
+
+
+def portfolio_honor_add(request):
+    if request.method == 'POST':
+        honor_form = HonorForm(request.POST)
+
+        if honor_form.is_valid():
+            honor_form.save()
+            return HttpResponseRedirect('/portfolio')
+
+    honor_form = HonorForm()
+    context = {
+        'honor_form': honor_form,
+    }
+
+    return render(request, 'blog/portfolio_honor_add.html', context=context)
+
+
+def portfolio_hobby_add(request):
+    if request.method == 'POST':
+        personal_hobby_form = PersonalHobbyForm(request.POST)
+
+        if personal_hobby_form.is_valid():
+            personal_hobby_form.save()
+            return HttpResponseRedirect('/portfolio')
+
+    personal_hobby_form = PersonalHobbyForm()
+    context = {
+        'personal_hobby_form': personal_hobby_form
+    }
+
+    return render(request, 'blog/portfolio_hobby_add.html', context=context)

@@ -32,6 +32,11 @@
                         {% endfor %}
                     </section>
                 {% endif %}
+
+                {% if user.is_authenticated %}
+                    <button><a href="{% url 'blog:portfolio_edu_add' %}">Add</a></button>
+                {% endif %}
+
                 <!-- ***********************  WORK EXPERIENCE  *********************** -->
                 {% if work_experiences %}
                     <section class="work-experience">
@@ -44,6 +49,9 @@
                             <p>{{ work_experience.details_of_work_and_internship | safe | linebreaksbr }}</p>
                         {% endfor %}
                     </section>
+                {% endif %}
+                {% if user.is_authenticated %}
+                    <button><a href="{% url 'blog:portfolio_work_add' %}">Add</a></button>
                 {% endif %}
                 <!-- ********************  PROJECTS / PORTFOLIO  ********************* -->
                 {% if projects %}
@@ -58,6 +66,9 @@
                         {% endfor %}
                     </section>
                 {% endif %}
+                {% if user.is_authenticated %}
+                    <button><a href="{% url 'blog:portfolio_project_add' %}">Add</a></button>
+                {% endif %}
                 <!-- ***********************  HONORS  *********************** -->
                 {% if honors %}
                     <section class="honors">
@@ -67,6 +78,9 @@
                             <p>{{ honor.name_of_the_honor }}</p>
                         {% endfor %}
                     </section>
+                {% endif %}
+                {% if user.is_authenticated %}
+                    <button><a href="{% url 'blog:portfolio_honor_add' %}">Add</a></button>
                 {% endif %}
                 <!-- ***********************  SKILLS  *********************** -->
                 {% if language_skills or programming_skills %}
@@ -78,6 +92,9 @@
                             {% for language_skill in language_skills %}
                                 <p>{{ language_skill.language_skills }}</p>
                             {% endfor %}
+                        {% endif %}
+                        {% if user.is_authenticated %}
+                            <button><a href="{% url 'blog:portfolio_language_add' %}">Add</a></button>
                         {% endif %}
 
                         {% if programming_skills %}
@@ -94,6 +111,9 @@
                         {% endif %}
                     </section>
                 {% endif %}
+                {% if user.is_authenticated %}
+                    <button><a href="{% url 'blog:portfolio_programming_language_add' %}">Add</a></button>
+                {% endif %}
 
                 <!-- *********************** Personal Hobbies  *********************** -->
                 {% if hobbies %}
@@ -105,8 +125,9 @@
                         {% endfor %}
                     </section>
                 {% endif %}
-
-
+                {% if user.is_authenticated %}
+                    <button><a href="{% url 'blog:portfolio_hobby_add' %}">Add</a></button>
+                {% endif %}
             </div><!--main -->
         </div><!-- row -->
     </main><!--container -->

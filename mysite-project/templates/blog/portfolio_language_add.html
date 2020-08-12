@@ -1,0 +1,41 @@
+{% extends 'blog/all_base.html' %}
+{% load static %}
+{% block content %}
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('{% static 'blog/img/University_of_Birmingham.jpg' %}')">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <div class="site-heading">
+                        <h1>Portfolio Edit</h1>
+                        <span class="subheading">Think Twice!</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main role="main" class="container">
+        <div class="row">
+            <div class="col-md-8 blog-main">
+                <!-- ***********************  LANGUAGE SKILLS  *********************** -->
+                <section class="Honors">
+                    <h2>Language</h2>
+                    <hr>
+                    <form method="post" action="{% url 'blog:portfolio_language_add' %}" id="languages-edit">
+                        {% csrf_token %}
+                        <div class="col-md-4">
+                            <label for="{{ language_form.language_skills.id_for_label }}">{{ language_form.language_skills.label }}：</label>
+                            {{ language_form.language_skills }}
+                            {{ language_form.language_skills.errors }}
+                            <button type="submit" class="submit-btn">Submit</button>
+                        </div>
+                    </form>
+                </section>
+
+            </div><!--main -->
+        </div><!-- row -->
+    </main><!--container -->
+
+{% endblock %}

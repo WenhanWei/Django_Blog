@@ -1,0 +1,65 @@
+{% extends 'blog/all_base.html' %}
+{% load static %}
+{% block content %}
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('{% static 'blog/img/University_of_Birmingham.jpg' %}')">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <div class="site-heading">
+                        <h1>Portfolio Edit</h1>
+                        <span class="subheading">Think Twice!</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main role="main" class="container">
+        <div class="row">
+            <div class="col-md-8 blog-main">
+                <!-- ********************  PROJECTS / PORTFOLIO  ********************* -->
+                <section class="Projects">
+                    <h2>Projects</h2>
+                    <hr>
+                    <form method="post" action="{% url 'blog:portfolio_project_add' %}" id="project-edit">
+                        {% csrf_token %}
+                        <div class="col-md-4">
+                            <label for="{{ project_form.name_of_project_experience.id_for_label }}">{{ project_form.name_of_project_experience.label }}：</label>
+                            {{ project_form.name_of_project_experience }}
+                            {{ project_form.name_of_project_experience.errors }}
+                        </div>
+                        <br>
+                        <div class="col-md-4">
+                            <label for="{{ project_form.project_job_title.id_for_label }}">{{ project_form.project_job_title.label }}：</label>
+                            {{ project_form.project_job_title }}
+                            {{ project_form.project_job_title.errors }}
+                        </div>
+                        <br>
+                        <div class="col-md-4">
+                            <label for="{{ project_form.start_date_of_project_experience.id_for_label }}">{{ project_form.start_date_of_project_experience.label }}：</label>
+                            {{ project_form.start_date_of_project_experience }}
+                            {{ project_form.start_date_of_project_experience.errors }}
+                        </div>
+                        <br>
+                        <div class="col-md-4">
+                            <label for="{{ project_form.end_date_of_project_experience.id_for_label }}">{{ project_form.end_date_of_project_experience.label }}：</label>
+                            {{ project_form.end_date_of_project_experience }}
+                            {{ project_form.end_date_of_project_experience.errors }}
+                        </div>
+                        <br>
+                        <div class="col-md-6">
+                            <label for="{{ project_form.details_of_project_experience.id_for_label }}">{{ project_form.details_of_project_experience.label }}：</label>
+                            {{ project_form.details_of_project_experience }}
+                            {{ project_form.details_of_project_experience.errors }}
+                            <button type="submit" class="submit-btn">Submit</button>
+                        </div>
+                    </form>
+                </section>
+
+            </div><!--main -->
+        </div><!-- row -->
+    </main><!--container -->
+
+{% endblock %}
