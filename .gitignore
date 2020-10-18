@@ -1,4 +1,5 @@
 .idea
+venv
 myvenv
 __pycache__
 mysite-project/mysite/secret_key.txt
